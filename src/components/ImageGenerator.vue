@@ -86,7 +86,6 @@ export default defineComponent({
     const loadingInstance = ref<any>(null);
     const fetchNFTUrl = async (no: number) => {
       const resp: any = await api.get(`/series/${XRC_CONFIG.IPFS_PATH}/nfts/${no}`);
-      console.log(resp);
       return resp.image_url;
     };
     watch(rabbitNo, async (newNo, oldNo) => {
@@ -101,7 +100,6 @@ export default defineComponent({
           } catch (e) {
             imageUrl = '';
           }
-          console.log(imageUrl);
           rabbitImageUrl.value = imageUrl || `${XRC_CONFIG.IMAGE_BASE_URL}${newNo}.png`;
         }
         // eslint-disable-next-line no-empty
